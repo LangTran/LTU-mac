@@ -1,0 +1,25 @@
+%product LangTranUpdate for Mac OS X 10.4 and later,
+%copyright 2019 Jim Henderson
+%vendor Jim Henderson
+%description Darwin version of LangTran software distribution system updater that uses rsync
+%version 3.06
+$MyName=LangTranUpdate
+$MyGroupName=langtran
+$MyHomeFolder=LangTranLocal
+$LRun=LangTranUpdate.desktop
+$LBehaviour=LTbehaviour.desktop
+# %arch all
+%license ${MyHomeFolder}/Progs/LICENSE.txt
+%readme ${MyHomeFolder}/Progs/README.txt
+%preinstall <${MyHomeFolder}/Progs/LT-setup.sh
+%postinstall <${MyHomeFolder}/Progs/set-permissions.sh
+
+d 775 root ${MyGroupName} /Users/Shared/${MyHomeFolder} -
+d 775 root ${MyGroupName} /Users/Shared/${MyHomeFolder}/Progs -
+d 775 root ${MyGroupName} /Applications/${MyName}/ -
+
+# f 775 root ${MyGroupName} /usr/share/applications ./*.desktop nostrip()
+f 775 root ${MyGroupName} /Users/Shared/${MyHomeFolder} ./${MyHomeFolder}/*.sh nostrip()
+f 664 root ${MyGroupName} /Users/Shared/${MyHomeFolder} ./${MyHomeFolder}/*.txt nostrip()
+f 775 root ${MyGroupName} /Users/Shared/${MyHomeFolder}/Progs ./${MyHomeFolder}/Progs/* nostrip()
+
