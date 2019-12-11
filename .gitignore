@@ -1,3 +1,13 @@
+# Standard OS X files to ignore:
+.DS_Store
+.Trashes
+*.swp
+*.lock
+*~.nib
+DeriveData/**
+build/**
+*~
+
 # folders made by PackageMaker:
 PackageMaker/**
 LangTranUpdate-3.06/**
