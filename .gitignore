@@ -15,5 +15,7 @@ LangTranUpdate-3.06/**
 # files made by pkgbuild:
 pkgbuild-products/**
 
+Platypus/**
+
 *.bak
 *.backup
