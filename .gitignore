@@ -17,5 +17,9 @@ pkgbuild-products/**
 
 Platypus/**
 
+# files produced by epm while making the package:
+Output/**
+
 *.bak
 *.backup
+thing.txt

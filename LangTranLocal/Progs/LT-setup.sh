@@ -38,7 +38,7 @@ case `uname` in
 	dscl . list /Groups | grep $$LTgroup >/dev/null ||
 	{
 	    LTtopGpNo=`dscl . list /Groups PrimaryGroupID |
-		sort -n +1 | sed -n -e 's/[^0-9]*//' -e '$$p'`
+		sort -n +1 | awk '{LastNo = $$NF}; END {print LastNo}'`
 	    LTdsclErrors=`expr $$LTdsclErrors + $$?`
 	    echo Top group number is $$LTtopGpNo
 	    LTnewGpNo=`expr $$LTtopGpNo + 1`

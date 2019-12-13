@@ -4,26 +4,31 @@
 %description Darwin version of LangTran software distribution system updater that uses rsync
 %version 3.06
 $MyName=LangTranUpdate.app
-$MyScriptPath=Applications/LangTranUpdate_app/Contents/MacOS
+$MyScriptBase=/Applications/LangTranUpdate.app/Contents
+$MyScriptSource=Applications/LangTranUpdate_app/Contents
 $MyScript=LangTranUpdate.sh
 $MyGroupName=langtran
-$MySourceBase=./LangTranLocal
-$MyDestFolder=/Users/Shared/LangTranLocal
+$MySourceBase=LangTranLocal
+$MyDataFolder=/Users/Shared/LangTranLocal
 # $LRun=LangTranUpdate.desktop
 # $LBehaviour=LTbehaviour.desktop
 # %arch all
-%license ${MySourceFolder}/Progs/LICENSE.txt
-%readme ${MySourceFolder}/Progs/README.txt
-%preinstall <${MySourceFolder}/Progs/LT-setup.sh
-%postinstall <${MySourceFolder}/Progs/set-permissions.sh
+%license ${MySourceBase}/Progs/LICENSE.txt
+%readme ${MySourceBase}/Progs/README.txt
+%preinstall <${MySourceBase}/Progs/LT-setup.sh
+%postinstall <${MySourceBase}/Progs/set-permissions.sh
 
-d 775 root ${MyGroupName} ${MyDestFolder} -
-d 775 root ${MyGroupName} ${MyDestFolder}/Progs -
+d 775 root ${MyGroupName} ${MyDataFolder} -
+d 775 root ${MyGroupName} ${MyDataFolder}/Progs -
 d 775 root ${MyGroupName} /Applications/${MyName}/ -
+d 775 root ${MyGroupName} $MyScriptBase -
+d 775 root ${MyGroupName} $MyScriptBase/Resources -
 
 # f 775 root ${MyGroupName} /usr/share/applications ./*.desktop nostrip()
-f 775 root ${MyGroupName} ${MyDestFolder} ./${MySourceBase}/Behaviour.sh nostrip()
-f 775 root ${MyGroupName} $MyScriptPath/$MyScript ./${MySourceBase}/$MyScript nostrip()
-f 664 root ${MyGroupName} ${MyDestFolder} ./${MySourceBase}/*.txt nostrip()
-f 775 root ${MyGroupName} ${MyDestFolder}/Progs ./${MySourceFolder}/Progs/* nostrip()
+f 775 root ${MyGroupName} $MyScriptBase/MacOS/$MyScript ${MyScriptSource}/MacOS/$MyScript nostrip()
+f 775 root ${MyGroupName} $MyScriptBase/Resources ${MyScriptSource}/Resources/* nostrip()
+f 775 root ${MyGroupName} $MyScriptBase/Info.plist ${MyScriptSource}/Info.plist  nostrip()
+f 775 root ${MyGroupName} ${MyDataFolder}/Behaviour.sh ${MySourceBase}/Behaviour.sh nostrip()
+f 664 root ${MyGroupName} ${MyDataFolder}/ ${MySourceBase}/*.txt nostrip()
+f 775 root ${MyGroupName} ${MyDataFolder}/Progs ${MySourceBase}/Progs/* nostrip()
 
