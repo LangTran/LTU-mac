@@ -3,15 +3,14 @@
 %vendor Jim Henderson
 %description Darwin version of LangTran software distribution system updater that uses rsync
 %version 3.06
-$MyName=LangTranUpdate.app
-$MyScript=LangTranUpdate.sh
+$MyName=LangTranUpdate
 $MyGroupName=langtran
 $MyHomeFolder=LangTranLocal
 # %arch all
-%license ${MySourceFolder}/Progs/LICENSE.txt
-%readme ${MySourceFolder}/Progs/README.txt
-%preinstall <${MySourceFolder}/Progs/LT-setup.sh
-%postinstall <${MySourceFolder}/Progs/set-permissions.sh
+%license ${MyHomeFolder}/Progs/LICENSE.txt
+%readme ${MyHomeFolder}/Progs/README.txt
+%preinstall <${MyHomeFolder}/Progs/LT-setup.sh
+%postinstall <${MyHomeFolder}/Progs/set-permissions.sh
 
 d 775 root ${MyGroupName} /Users/Shared/${MyHomeFolder} -
 d 775 root ${MyGroupName} /Users/Shared/${MyHomeFolder}/Progs -
