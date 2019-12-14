@@ -17,3 +17,15 @@ LangTranUpdate-3.06/**
 
 Folder tree made by epm:
 Output/**
+
+Applications/**
+LangTranUpdate-3.06/**
+LangTranUpdate-Mac.list*
+LangTranUpdate.plist
+PackageMaker/**
+Platypus/**
+README.md
+icons/**
+mk-mac-langtran.sh*
+pkgbuild-products/**
+thing.txt

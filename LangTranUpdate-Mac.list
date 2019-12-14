@@ -6,8 +6,6 @@
 $MyName=LangTranUpdate
 $MyGroupName=langtran
 $MyHomeFolder=LangTranLocal
-$LRun=LangTranUpdate.desktop
-$LBehaviour=LTbehaviour.desktop
 # %arch all
 %license ${MyHomeFolder}/Progs/LICENSE.txt
 %readme ${MyHomeFolder}/Progs/README.txt
@@ -16,10 +14,8 @@ $LBehaviour=LTbehaviour.desktop
 
 d 775 root ${MyGroupName} /Users/Shared/${MyHomeFolder} -
 d 775 root ${MyGroupName} /Users/Shared/${MyHomeFolder}/Progs -
-d 775 root ${MyGroupName} /Applications/${MyName}/ -
 
-# f 775 root ${MyGroupName} /usr/share/applications ./*.desktop nostrip()
-f 775 root ${MyGroupName} /Users/Shared/${MyHomeFolder} ./${MyHomeFolder}/*.sh nostrip()
+f 775 root ${MyGroupName} /Users/Shared/${MyHomeFolder} ./${MyHomeFolder}/*.command nostrip()
 f 664 root ${MyGroupName} /Users/Shared/${MyHomeFolder} ./${MyHomeFolder}/*.txt nostrip()
 f 775 root ${MyGroupName} /Users/Shared/${MyHomeFolder}/Progs ./${MyHomeFolder}/Progs/* nostrip()
 
