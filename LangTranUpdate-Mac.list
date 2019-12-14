@@ -4,7 +4,6 @@
 %description Darwin version of LangTran software distribution system updater that uses rsync
 %version 3.06
 $MyName=LangTranUpdate.app
-$MyScriptPath=Applications/LangTranUpdate_app/Contents/MacOS
 $MyScript=LangTranUpdate.sh
 $MyGroupName=langtran
 $MyHomeFolder=LangTranLocal
