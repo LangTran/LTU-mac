@@ -4,6 +4,9 @@
 *.swp
 *.lock
 *~.nib
+*.bak
+*.backup
+
 DeriveData/**
 build/**
 *~
@@ -12,5 +15,5 @@ build/**
 PackageMaker/**
 LangTranUpdate-3.06/**
 
-*.bak
-*.backup
+Folder tree made by epm:
+Output/**
