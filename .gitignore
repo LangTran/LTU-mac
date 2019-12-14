@@ -6,9 +6,6 @@
 *~.nib
 *.bak
 *.backup
-
-DeriveData/**
-build/**
 *~
 
 # folders made by PackageMaker:
@@ -20,8 +17,6 @@ Output/**
 
 Applications/**
 LangTranUpdate-3.06/**
-LangTranUpdate-Mac.list*
-LangTranUpdate.plist
 PackageMaker/**
 Platypus/**
 README.md
