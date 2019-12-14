@@ -17,5 +17,6 @@ d 775 root ${MyGroupName} /Users/Shared/${MyHomeFolder}/Progs -
 
 f 775 root ${MyGroupName} /Users/Shared/${MyHomeFolder} ./${MyHomeFolder}/*.command nostrip()
 f 664 root ${MyGroupName} /Users/Shared/${MyHomeFolder} ./${MyHomeFolder}/*.txt nostrip()
-f 775 root ${MyGroupName} /Users/Shared/${MyHomeFolder}/Progs ./${MyHomeFolder}/Progs/* nostrip()
+f 775 root ${MyGroupName} /Users/Shared/${MyHomeFolder}/Progs ./${MyHomeFolder}/Progs/*.sh nostrip()
+f 664 root ${MyGroupName} /Users/Shared/${MyHomeFolder}/Progs ./${MyHomeFolder}/Progs/*.txt nostrip()
 

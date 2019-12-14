@@ -1,7 +1,7 @@
 #!/bin/sh
     #
     # set -x
-    # Behaviour.sh
+    # Behaviour.txt
     #
     # This is a control file for the LangTranUpdate script.
 
@@ -43,7 +43,8 @@ Persistent=yes
 
     if [ "$Persistent" = "yes" ]
     then
-        # Persistent mode assumes a 20 minute timeout before rsync will give up. (1200 seconds)
+        # Persistent mode assumes a 20 minute timeout before rsync will give up. 
+        # (1200 seconds)
         # You can change that if you want to. Just change the figure below this line.
         Tmo=1200
     fi
@@ -54,14 +55,15 @@ Persistent=yes
     KeepArchive=no
     # If you want to keep old versions on your computer,
     # remove the "#" from the next line:
-KeepArchive=yes
+# KeepArchive=yes
 
     # If you want to keep an archive of previous versions of installers,
     #    you will need to set ArchiveDir to the place you want the archive to be.
-ArchiveDir=~/Downloads/LangTranArchive
-    # The previous line says that the archive folder should be in your Downloads.
+ArchiveDir=/Users/Shared/LangTranArchive
+    # The previous line says that the archive folder should be /Users/Shared.
     # If you would like to put it somewhere else,
     #    remove the "#" from one of the following lines, or make your own:
+# ArchiveDir=~/Downloads/LangTranArchive
 # ArchiveDir=~/LangTranArchive
 # ArchiveDir=~/Documents/LangTranArchive
 
