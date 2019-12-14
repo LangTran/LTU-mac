@@ -10,12 +10,12 @@
 #         it will make it.
 #     It will then update that folder from the LangTran server.
 #
-# Version 3.06, last edited 2019-09-18 at 18:23
+# Version 3.06, last edited 2019-12-14 at 21:29
 # This version, when pruning the archive, does pushd to the folder
 # and then calls PruneArchive.sh, then does popd back again.
 #
 echo 
-echo "Don't let the black-background window startle you."
+echo "Don't let the text window startle you."
 echo "I'm using it to report my progress."
 echo 
 echo This program is part of the LangTran system,
