@@ -8,6 +8,8 @@
 *.backup
 *~
 
+LangTranLocal/.DS_Store
+
 # folders made by PackageMaker:
 PackageMaker/**
 LangTranUpdate-3.06/**
