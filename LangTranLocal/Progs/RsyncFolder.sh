@@ -100,13 +100,13 @@ Attempts=5
 while test "$Attempts" -gt 0
 do
     echo Updating files from the LangTran server with the command:
-    echo rsync -dvrLtP --modify-window=1 --chmod=a=rwx $RsyncDelType --timeout=$Tmo --partial-dir=.rsync-bit -f "- .Sync*" "$LTserver::ltuser/$1/" "$Dest/"
+    echo rsync -dvrLtP --modify-window=1 --chmod=a=rwx $RsyncDelType --timeout=$Tmo --partial-dir=.rsync-bit -f "- .sync*" "$LTserver::ltuser/$1/" "$Dest/"
     echo
     echo It can take a long time to work out what to update and get started.
     echo Please be patient :-\)
     echo
 
-    rsync -dvrLtP --modify-window=1 --chmod=a=rwx $RsyncDelType --timeout=$Tmo --partial-dir=.rsync-bit -f "- .Sync*" "$LTserver::ltuser/$1/" "$Dest/"
+    rsync -dvrLtP --modify-window=1 --chmod=a=rwx $RsyncDelType --timeout=$Tmo --partial-dir=.rsync-bit -f "- .sync*" "$LTserver::ltuser/$1/" "$Dest/"
     RsyncErrNo=$?
     echo Return value from rsync is $RsyncErrNo
     
