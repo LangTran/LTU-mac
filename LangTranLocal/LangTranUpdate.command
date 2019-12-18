@@ -14,13 +14,37 @@
 # This version, when pruning the archive, does pushd to the folder
 # and then calls PruneArchive.sh, then does popd back again.
 #
+MYNAME=$0
 echo 
+
+case `uname` in
+    Linux)
+	LTBehaviour=Behaviour.sh
+	LTplatform=Linux
+	;;
+    Darwin)
+	LTBehaviour=Behaviour.txt
+	LTplatform=Mac
+
+	# On a Mac, when you double-click a shell script,
+	# it runs in your home directory,
+	# so a cd to the installed folder is needed.
+	LTUhome=/Users/Shared/LangTranLocal
+	cd $LTUhome ||
+	{
+	    echo $MYNAME: Failed to cd to $LTUhome. Please investigate >&2
+	    exit 1
+	}
+	;;
+esac
+
 echo "Don't let the text window startle you."
 echo "I'm using it to report my progress."
 echo 
 echo This program is part of the LangTran system,
 echo and its full path and name is
-echo `pwd`/$0
+echo The current directory is `pwd` 
+echo and my name is $0
 # echo Here are the processes:
 # ps -f
 echo
@@ -28,7 +52,6 @@ echo This program copies the files in the folders that you have selected
 echo from the LangTran server onto your computer, in the current folder,
 echo by default, /Users/Shared/LangTranLocal
 
-MYNAME=$0
 export LTserver=63.142.243.28
 LangTranList=LangTranList.txt
 export FolderCount=FoldersUpdated.txt
@@ -121,8 +144,14 @@ KeepArchive=no
 ArchiveDir=~/Downloads/archive
 KeepArchNr=4
 
+
 # Get the control file, changing the values of some variables.
-. ./Behaviour.sh || echo "I wasn't able to load the contents of Behaviour.sh. Please investigate." >&2
+. ./$LTBehaviour || 
+    {
+	echo "I wasn't able to load the contents of ${LTBehaviour}."
+	echo "Please investigate."
+    } >&2
+
 [ "$Persistent" = "yes" ] && echo Persistent mode is on.
 
 # First thing after installation, when the installer runs this script,
@@ -133,12 +162,25 @@ then
     {
         echo -e "\r"
         echo -e "When you want to run this LangTran Update program another time,\r"
-        echo -e "Double-click the icon on the desktop\r"
-        echo -e "or open the START menu, go to the Internet section\r"
-        echo -e "and click LangTranUpdate.\r"
-        echo -e " \r"
-        echo -e "If you want to change update behaviour,\r"
-        echo -e "open the menu for Preferences and click a LangTran item.\r"
+
+	case $LTplatform in
+	    Linux)
+		echo -e "Double-click the icon on the desktop\r"
+		echo -e "or open the START menu, go to the Internet section\r"
+		echo -e "and click LangTranUpdate.\r"
+		echo -e " \r"
+		echo -e "If you want to change update behaviour,\r"
+		echo -e "open the menu for Preferences and click a LangTran item.\r"
+		;;
+	    Mac)
+		echo -e "Use Finder to go to $LTUhome\r"
+		echo -e "and double-click LangTranUpdate.\r"
+		echo -e " \r"
+		echo -e "If you want to change update behaviour,\r"
+		echo -e "in the folder $LTUhome, double-click Behaviour.txt\r"
+		;;
+	esac
+
     } >  Progs/$FirstRun
     
     echo "I'm running because the software installer started me."
