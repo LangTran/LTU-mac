@@ -247,7 +247,7 @@ echo
 RsyncDelType=--delete-delay
 export RsyncDelType
 
-rsync $RsyncDelType --version 2>&1 > /dev/null || RsyncDelType=--delete-after
+rsync $RsyncDelType --version 2>/dev/null >/dev/null || RsyncDelType=--delete-after
 
 Attempts=5
 # :WhileCheckingConnection
@@ -297,7 +297,7 @@ echo Updating folders into the folder: `pwd`
 echo
 
 echo Checking for updates to the LangTranUpdate system first . . .
-Progs/RsyncFolder.sh Linux/Linux/Basis_Linux
+Progs/RsyncFolder.sh Mac/Mac/Basis_Mac
 ERRORLEVEL=$?
 # echo back from script RsyncFolder.sh, errorlevel is $ERRORLEVEL
 

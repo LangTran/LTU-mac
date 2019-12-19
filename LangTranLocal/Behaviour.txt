@@ -39,7 +39,7 @@ KeepNr=16
     #     you can run LangTran Update in "Persistent mode". Then it will try harder.
     Persistent=no
     # If you want to run in Persistent mode, delete the "#" from the next line:
-Persistent=yes
+# Persistent=yes
 
     if [ "$Persistent" = "yes" ]
     then

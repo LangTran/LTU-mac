@@ -1,8 +1,0 @@
-
-When you want to run this LangTran Update program another time,
-Double-click the icon on the desktop
-or open the START menu, go to the Internet section
-and click LangTranUpdate.
- 
-If you want to change update behaviour,
-open the menu for Preferences and click a LangTran item.
